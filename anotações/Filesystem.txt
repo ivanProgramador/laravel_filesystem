@@ -21,3 +21,50 @@ Filesystem
   - s3
   
  Entendo o sistema de download  
+  
+  Existem 2 pastas com nome public mas somente uma é realmente é pública, a pasta pulica fica na raiz projeto  
+  "public" já apasta que temo nome "public" mas não é publica fica em "storage/app/public"mas parar fazer com que 
+  seja possivel um usuario baixar alguma coisa de dentro do sistema é necessá criar uma relação entre essas pastas,
+
+Criando essa conexão 
+ comando 
+  php artisan storage:link
+
+ Esse comando cria dentro do configuração do Filesystem uma configuração de link, como esse link 
+ ja existe por padrão então ele so será ativado 
+
+    'links' => [
+        public_path('storage') => storage_path('app/public'),
+    ],
+
+Depois que isso acontece uma pasta chamado storage é criada dentro da pasta "public" que fica na raiz,
+do projeto, ela vai funcionar como um atalho para a pasta public que fica dentro do storage.ela vai se  
+comportar como um clone.
+
+para testar se realmente esta fucionando cria um arquivo de teste dentro dela e depois compara as duas
+o cmportamento esperado e que: "Embora o aruivo tenha sido criado dentro de uma pasta restrita ele 
+apareça tambem na pasta publica "
+
+ou seja "storage" que está na pasta public da raiz é um clone da pasta public que esta dentro da pasta 
+"storage/app/public" 
+
+É assim que o usuario tem acesso a aruivos qu estão dentro do servidor somente parara download, sem que 
+o sistema fique vulneravel a ataques uma vez que nessa pasta so seram compartilhados oque eu escolher 
+
+como disponibilizar um aruivo de dentro da pasta storage pra uma rota
+
+Route::get('/file',function(){
+   
+    $content = Storage::disk('public')->get('teste.txt');
+    echo $content;
+});
+
+
+
+
+
+
+
+
+
+   
