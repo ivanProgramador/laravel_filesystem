@@ -1,0 +1,23 @@
+Filesystem 
+  O Filesystem é um sitema interno do laravel reposnavel pór lidar com a manipulação de aruivos de forma geral,
+  como o laravel é um framework web ele também lida com arquivos. Cuidado pra não confundir Filesystem do windows 
+  com o Filesystem do laravel.
+
+  Atráves das funções do Filesystem eu posso guardar meus aruivos em servidores externos ou no disco local do meu
+  computador dempendendo da necessidade do porjeto que eu vou criar.Usando portcolocos FTP.
+
+  acessando as configurações do Filesystem 
+  pasta "config/filesystem.php"
+
+  Aqui diz que armazenamento dos meus arquivos está apontando para o meu disco local 
+
+   'default' => env('FILESYSTEM_DISK', 'local')
+
+  Logo abaixo eu tenho uma lista dos protocolos de transferencia de arquivos suportados 
+
+  - local
+  - ftp
+  - sftp
+  - s3
+  
+ Entendo o sistema de download  
