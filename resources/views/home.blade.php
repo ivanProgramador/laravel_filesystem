@@ -12,13 +12,18 @@
                      <a href="{{route('storage.local.read.multi')}}" class="btn btn-primary">Ler arquivo com multiplas linhas</a>
                  </div>
 
-                 <div class="d-flex gap-5">
+                 <div class="d-flex gap-5 mb-5">
                      <a href="{{route('storage.local.check.file')}}" class="btn btn-primary">Verificar se o arquivo existe</a>
                      <a href="{{route('storage.local.store.json')}}" class="btn btn-primary">Armazenar um JSON</a>
                      <a href="{{route('storage.local.read.json')}}" class="btn btn-primary">Ler um JSON</a>
                      <a href="{{route('storage.local.list')}}" class="btn btn-primary">Listando arquivos</a>
-                     <a href="{{route('storage.local.delete')}}" class="btn btn-primary">Apagando arquivos</a>
-                     
+                     <a href="{{route('storage.local.delete')}}" class="btn btn-primary">Apagando arquivos</a>   
+                 </div>
+
+                 <div class="d-flex gap-5 mb-5">
+
+                    <a href="{{route('storage.local.create.folder')}}" class="btn btn-primary">Criando pasta</a> 
+                    <a href="{{route('storage.local.delete.folder')}}" class="btn btn-primary">Apagando pasta</a> 
                      
                  </div>
                  

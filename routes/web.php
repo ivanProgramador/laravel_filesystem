@@ -39,6 +39,14 @@ Route::get('/storage_list',[FileController::class,'listFiles'])->name('storage.l
 
 Route::get('/storage_local_delete',[FileController::class,'localDelete'])->name('storage.local.delete');
 
+//rotas para operações com pastas 
+
+Route::get('/storage_create_folder',[FileController::class,'createFolder'])->name('storage.local.create.folder');
+Route::get('/storage_delete_folder',[FileController::class,'deleteFolder'])->name('storage.local.delete.folder');
+
+
+
+
 
 
 

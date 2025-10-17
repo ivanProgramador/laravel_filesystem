@@ -120,12 +120,36 @@ class FileController extends Controller
          
         //apagando um arquivo   
         Storage::delete(['file1.txt']);
-        
+
         //apagando todos os arquivos
          Storage::delete(Storage::files());
          
         echo"Arquivo removido com sucesso";
     }
+
+    public function createFolder(){
+
+        //esse comando vai criara uma pasta dentro do do diretorio
+        //storage/app/private 
+
+         Storage::makeDirectory('documents');
+
+        //criando uma pasta dentro da pasta de documentos
+
+         Storage::makeDirectory('documents/teste');
+         echo'pasta criada';
+    }
+
+    public function deleteFolder(){
+        //pagando a pasta documents
+        //toda vez qu o storage recebe uma ordem de apagar uma pasta
+        //qualquer arquivo dentro dela será eliminado tambem 
+         
+        Storage::deleteDirectory('documents');
+        echo'pasta apagada';
+    }
+
+    
 
     
 }
