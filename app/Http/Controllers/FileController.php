@@ -14,7 +14,7 @@ class FileController extends Controller
 
     
     public function storageLocalCreate(){
-        Storage::put('File1.txt','Conteudo do arquivo 1');
+        Storage::put('File2.txt','Conteudo do arquivo 1');
         return redirect()->route('home');
     }
 
@@ -24,5 +24,33 @@ class FileController extends Controller
 
          return redirect()->route('home');
 
+    }
+
+    public function storageLocalRead(){
+
+        //carrega o conteudo do arquivo para dentro da variavel
+
+        $conteudo = Storage::get('File2.txt');
+
+
+        echo $conteudo;
+    }
+
+    public function storageLocalReadMulti(){
+        //pegando o aruivo de texto 
+        $lines = Storage::get('File2.txt');
+
+        //usandoa  função explode para separar as linhas nesse caos a cada
+        //quabra de linha (PHP_EOL) ele vai contar como uma linha diferente e colocar em uma posição
+        //de um array 
+
+        $lines = explode(PHP_EOL,$lines);
+
+        //fazendo um loop para mostrar todas as linhas do arquivo
+        //uma a uma 
+
+        foreach($lines as $line){
+            echo "<p>.$line.</p>";
+        }
     }
 }

@@ -8,6 +8,8 @@
                  <div class="d-flex gap-5">
                      <a href="{{route('storage.local.create')}}" class="btn btn-primary">Criar arquivo </a>
                      <a href="{{route('storage.local.append')}}" class="btn btn-primary">Acrescentar conteudo a um arquivo </a>
+                     <a href="{{route('storage.local.read')}}" class="btn btn-primary">Ler conteudo do StorageLocal </a>
+                     <a href="{{route('storage.local.read.multi')}}" class="btn btn-primary">Ler arquivo com multiplas linhas</a>
                  </div>
                  
 
