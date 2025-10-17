@@ -1,0 +1,12 @@
+Pra acrescentar dados eu uso a função append da classe Storage 
+no caso abaixo eu crio o arquivo e depois coloco 100 caratceres aleatórios nele
+sendo que se essa função for acionada de novo ela vai colocando mais caratceres 
+no arquivo  
+
+public function storageLocalAppend(){
+
+        Storage::append('File2.txt',Str::random(100));
+
+        return redirect()->route('home');
+
+    }
