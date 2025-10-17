@@ -53,4 +53,20 @@ class FileController extends Controller
             echo "<p>.$line.</p>";
         }
     }
+
+    public function storageLocalCheckFile(){
+     
+        // npprverificara se uma ruivo existe basta usar o metodo exists da classe
+        //Storage apos o teste ele retorna uma bolenao que pode ser testado pelo if else
+
+        $exists = Storage::exists('File100.txt');
+
+        if($exists){
+            echo'o arquivo existe';
+        }else{
+             echo'o arquivo não existe';
+        }
+    }
+
+    
 }

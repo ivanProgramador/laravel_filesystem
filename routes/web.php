@@ -5,7 +5,11 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Storage;
 
 Route::get('/',[FileController::class,'index'])->name('home');
+
+//criar um arquivo 
 Route::get('/storage_local_create',[FileController::class,'storageLocalCreate'])->name('storage.local.create');
+
+//adicionar dados no arquivo 
 Route::get('/storage_local_append',[FileController::class,'storageLocalAppend'])->name('storage.local.append');
 
 //lendo arquivos vcom uma linha 
@@ -14,4 +18,12 @@ Route::get('/storage_local_read',[FileController::class,'storageLocalRead'])->na
 //lendo arquivos com multiplas linhas
 
 Route::get('/storage_local_read_multi',[FileController::class,'storageLocalReadMulti'])->name('storage.local.read.multi');
+
+//verificar se um arquivo existe 
+
+Route::get('/storage_local_check_file',[FileController::class,'storageLocalCheckFile'])->name('storage.local.check.file');
+
+
+
+
 
