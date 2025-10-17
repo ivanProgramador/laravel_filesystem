@@ -35,6 +35,12 @@ Route::get('/storage_local_read_json',[FileController::class,'readJson'])->name(
 
 Route::get('/storage_list',[FileController::class,'listFiles'])->name('storage.local.list');
 
+//deletar aquivos
+
+Route::get('/storage_local_delete',[FileController::class,'localDelete'])->name('storage.local.delete');
+
+
+
 
 
 

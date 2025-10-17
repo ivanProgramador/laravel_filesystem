@@ -103,10 +103,28 @@ class FileController extends Controller
     }
 
     public function listFiles(){
+
+        //existe a possibilidade de listar arquivos  
         
-        $files = Storage::files('');
+        $files = Storage::disk()->files();
+
+        //listando pastas
+        // $diretorios = Storage::disk()->directories();
+        
+
         echo'<pre>';
         print_r($files);
+    }
+
+    public function localDelete(){
+         
+        //apagando um arquivo   
+        Storage::delete(['file1.txt']);
+        
+        //apagando todos os arquivos
+         Storage::delete(Storage::files());
+         
+        echo"Arquivo removido com sucesso";
     }
 
     
