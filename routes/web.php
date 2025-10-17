@@ -1,12 +1,9 @@
 <?php
 
+use App\Http\Controllers\FileController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Storage;
 
-Route::view('/','home');
+Route::get('/',[FileController::class,'index']);
+Route::get('/storage_local_create',[FileController::class,'storageLocalCreate'])->name('storage.local.create');
 
-Route::get('/file',function(){
-   
-    $content = Storage::disk('public')->get('teste.txt');
-    echo $content;
-});

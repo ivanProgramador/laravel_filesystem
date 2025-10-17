@@ -1,0 +1,14 @@
+Para criar um arquivo dentro de uma pasta eu posso usar a classe Storage 
+ela tem o metodo put() que recebe 2 paramentos 
+
+1 - o nome do aruivo eo tipo
+  'File1.txt'
+
+2 - o conteudo qua sera escrito no arquivo
+  'Conteudo do arquivo 1'
+
+Com a execução do codigo abaixo ele será gerado por padrão na pasta "storage/private/"
+mas isso é uma questão de escolha porque eu posso mudar a url no primeiro parametro
+
+ Storage::put('/pasta_ecolhida/File1.txt','Conteudo do arquivo 1'); 
+
