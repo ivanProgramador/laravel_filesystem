@@ -102,5 +102,12 @@ class FileController extends Controller
          print_r($data);
     }
 
+    public function listFiles(){
+        
+        $files = Storage::files('');
+        echo'<pre>';
+        print_r($files);
+    }
+
     
 }
