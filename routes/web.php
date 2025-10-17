@@ -23,6 +23,14 @@ Route::get('/storage_local_read_multi',[FileController::class,'storageLocalReadM
 
 Route::get('/storage_local_check_file',[FileController::class,'storageLocalCheckFile'])->name('storage.local.check.file');
 
+//guardar um arquivo json 
+
+Route::get('/storage_local_store_json',[FileController::class,'storeJson'])->name('storage.local.store.json');
+
+//ler um arquivo json 
+
+Route::get('/storage_local_read_json',[FileController::class,'readJson'])->name('storage.local.read.json');
+
 
 
 
