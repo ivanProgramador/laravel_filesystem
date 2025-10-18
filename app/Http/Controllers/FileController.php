@@ -152,6 +152,8 @@ class FileController extends Controller
 
     public function listFilesWithMetadata(){
 
+
+
         //o metodo allFiles traz todos os arquivos de todas as pastas
         //dentro do storage/app 
         //ele retorna também os metadados de cada arquivo que seriam 
@@ -180,7 +182,43 @@ class FileController extends Controller
         return view('list-files-with-metadata',compact('files'));
      }
 
+
+        public function listFilesForDowload(){
+
+            $list_files = Storage::allFiles();
+
+            $files = [];
+
+             foreach($list_files as $file){
+           
+            $files[]=[
+                'name'=>$file,
+                'size' => round(Storage::size($file)/1024,2),
+                'last_modified'=>Carbon::createFromTimestamp(Storage::lastModified($file))->format('d/m/Y H:i:s'),
+                'mime_type'=>Storage::mimeType($file)
+            ];
+           }
+
+
+        }
+
+
+
+
+
+
+     
+
+
+
+
+
     
 
     
-}
+
+
+
+
+
+    }
