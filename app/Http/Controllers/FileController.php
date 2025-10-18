@@ -194,7 +194,7 @@ class FileController extends Controller
                     $files[]=[
                         'name'=>$file,
                         'size' => round(Storage::size($file)/1024,2),
-                        'file_url'=> Storage::url($file)
+                        'file'=> basename($file)
                     ];
            }
 

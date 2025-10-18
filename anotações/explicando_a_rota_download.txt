@@ -1,0 +1,62 @@
+Da foma anterior como eu so tinha uma rota que mostrava a lista de aruivos eo link parar esses arquivos
+acontecia que o navegador não deixava baixar de foma direta os aruivos que ele mesmo conseguia ler, nisso 
+para ter acesso de fato ao download o usuario teria de abrir uma segunda página e baixar.
+
+pra evitar isso eu fui no meu método agora ao inves de retornar a url eu rretorno o nome do arquivo   
+
+ 'file'=> basename($file)
+
+Fui la na view e mudei o link pra minha rota download mandando o nome doi aquivo como parametro  
+
+<li>Download: <a href="{{ route('download',['file'=>$file['file']] ) }}">Download</a> </li>
+
+Nisso quando usuario clica nesse link, ele manda o nome do arquivo pra rota que aciona, uma função 
+que pega o nome dele e responde a requisição com um download usando como base a pásta que o arquivo 
+está e o nome dele aia ela baixa direto 
+
+return response()->download('storage/'.$file);
+
+
+aplicando 
+-----------------------------------------------------------------------------------
+
+Route::get('/download/{file}',function($file){
+
+    return response()->download('storage/'.$file);
+
+})->name('download');
+
+
+
+como ficou o metodo 
+-------------------------------------------------------------------------------------------------------
+
+public function listFilesForDowload(){
+
+            $list_files = Storage::allFiles();
+
+            $files = [];
+
+             foreach($list_files as $file){
+           
+                    $files[]=[
+                        'name'=>$file,
+                        'size' => round(Storage::size($file)/1024,2),
+                        'file'=> basename($file)
+                    ];
+           }
+
+           //
+           return view('list-files-for-download',compact('files'));
+
+
+        }
+
+
+como ficou a rota
+-------------------------------------------------------------------
+Route::get('/download/{file}',function($file){
+
+    return response()->download('storage/'.$file);
+
+})->name('download');

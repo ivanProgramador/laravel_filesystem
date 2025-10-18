@@ -50,6 +50,11 @@ Route::get('/storage_local_list_files_metadata',[FileController::class,'listFile
 //listando aruivos para download 
 Route::get('/storage_local_list_files_for_download',[FileController::class,'listFilesForDowload'])->name('storage.local.list.for.download');
 
+Route::get('/download/{file}',function($file){
+
+    return response()->download('storage/'.$file);
+
+})->name('download');
 
 
 

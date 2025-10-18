@@ -9,7 +9,7 @@
                      <ul>
                         <li><strong>Nome do ficheiro / arquivo:</strong> {{ $file['name'] }}</li>
                         <li><strong>Tamanho do ficheiro / arquivo:</strong> {{ $file['size'] }} bytes</li>
-                        <li>Download: <a href="{{ $file['file_url'] }}">Download</a> </li>
+                        <li>Download: <a href="{{ route('download',['file'=>$file['file']] ) }}">Download</a> </li>
                         
                      </ul>
                 </div>
