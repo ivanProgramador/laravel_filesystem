@@ -1,0 +1,10 @@
+O dowload não estav funcionando porque eu estava executando o laravel localmente
+usando o xamp então sar o link equivale a baixar o aruivo dentro do próprio servidor
+então eu executeo comando 
+
+php artisan serve 
+
+que cria um outro servidor  virtual na porta 8000 
+
+e acessando por esse servidorr que ele criou o download deu certo 
+acredito que a causa seja essa agora a pagina de download de aruivos esta funcionando  

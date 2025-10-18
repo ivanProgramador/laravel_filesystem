@@ -191,13 +191,15 @@ class FileController extends Controller
 
              foreach($list_files as $file){
            
-            $files[]=[
-                'name'=>$file,
-                'size' => round(Storage::size($file)/1024,2),
-                'last_modified'=>Carbon::createFromTimestamp(Storage::lastModified($file))->format('d/m/Y H:i:s'),
-                'mime_type'=>Storage::mimeType($file)
-            ];
+                    $files[]=[
+                        'name'=>$file,
+                        'size' => round(Storage::size($file)/1024,2),
+                        'file_url'=> Storage::url($file)
+                    ];
            }
+
+           //
+           return view('list-files-for-download',compact('files'));
 
 
         }
