@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -151,19 +152,30 @@ class FileController extends Controller
 
     public function listFilesWithMetadata(){
 
+        //o metodo allFiles traz todos os arquivos de todas as pastas
+        //dentro do storage/app 
+        //ele retorna também os metadados de cada arquivo que seriam 
+        //nome, tamanho, data de modificação e tipo mime
+
         $list_files = Storage::allFiles();
 
         $files = [];
+        
+        //ele vai rtronar uma array com esses dados eentão para ler 
+        //eu tenho qque usar um foreach para percorrer cada arquivo e pegar
+        //os metadados
 
         foreach($list_files as $file){
            
             $files[]=[
                 'name'=>$file,
                 'size' => round(Storage::size($file)/1024,2),
-                'last_modified'=>Storage::lastModified($file),
+                'last_modified'=>Carbon::createFromTimestamp(Storage::lastModified($file))->format('d/m/Y H:i:s'),
                 'mime_type'=>Storage::mimeType($file)
             ];
         }
+
+        //aqui estaou mandando esses dados para a view
 
         return view('list-files-with-metadata',compact('files'));
      }
