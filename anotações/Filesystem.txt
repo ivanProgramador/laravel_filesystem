@@ -59,6 +59,10 @@ Route::get('/file',function(){
     echo $content;
 });
 
+A classe "Storage" possui varios metodos de manipulação de arquivos e pastas 
+por isso todos os metodos do controlller  estão utilizando ela para fazer as 
+alterações  em arquivos ou pastas.   
+
 
 
 

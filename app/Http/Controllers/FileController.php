@@ -149,6 +149,25 @@ class FileController extends Controller
         echo'pasta apagada';
     }
 
+    public function listFilesWithMetadata(){
+
+        $list_files = Storage::allFiles();
+
+        $files = [];
+
+        foreach($list_files as $file){
+           
+            $files[]=[
+                'name'=>$file,
+                'size' => round(Storage::size($file)/1024,2),
+                'last_modified'=>Storage::lastModified($file),
+                'mime_type'=>Storage::mimeType($file)
+            ];
+        }
+
+        return view('list-files-with-metadata',compact('files'));
+     }
+
     
 
     
