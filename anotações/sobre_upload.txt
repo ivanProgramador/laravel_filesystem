@@ -1,0 +1,5 @@
+Sempre lembrar de verificar o php.ini
+lá tem uma linha se essa linha tiver comentada  
+o upload vai falhar
+ 
+upload_tmp_dir="C:\xampp\tmp"

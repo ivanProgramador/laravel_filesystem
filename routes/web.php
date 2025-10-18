@@ -56,6 +56,8 @@ Route::get('/download/{file}',function($file){
 
 })->name('download');
 
+Route::post('/storage_local_upload',[FileController::class,'uploadFile'])->name('storage.local.upload');
+
 
 
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Carbon\Carbon;
+use GuzzleHttp\Psr7\UploadedFile;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -201,6 +202,29 @@ class FileController extends Controller
            //
            return view('list-files-for-download',compact('files'));
 
+
+        }
+
+        public function uploadFile(Request $request){
+         
+            // aqui eu pego o endereço do aruivo que veio pela url 
+            // e uso a função storage pra criara uma pasta e colocar ele dentro 
+            // no caso essa pasta esta em storage/app/private/uploads 
+            // para evitar a sobreposição de arquivos o aruivo não fica com o nome original
+            // ao inves disse ele recebe uma hash unica e aleatoria como nome,
+            // oque impede que ele seja sobreposto.
+
+            //mas dependeo da necessidade o aquivo pode ser salvo em outrra pasta 
+            //por exemplo: 
+            //$request->file('arquivo')->store('public');
+
+            //agora se não queiser que arquivo mude de nome
+            //quando ulpload for feito pode fazer da forma abaixo mas não é aconselhavel  
+            // $request->file('arquivo')->storeAs('public',$request->file('arquivo')->getClientOriginalName());
+
+            $request->file('arquivo')->store('upload');
+
+            echo'arquivo enviado com sucesso';
 
         }
 

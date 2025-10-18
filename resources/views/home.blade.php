@@ -28,6 +28,25 @@
                     <a href="{{route('storage.local.list.for.download')}}" class="btn btn-primary">Lista de aruivos para download </a>    
                      
                  </div>
+
+                 <hr>
+
+                 <div>
+                     <p class="display-6">Upload de arquivos</p>
+
+                     <form action="{{ route('storage.local.upload') }}" method="post" enctype="multipart/form-data">
+                         @csrf
+                         <div class="mb-3">
+                            <label for="arquivo" class="form-label" >Arquivo</label>
+                            <input type="file" class="form-control" name="arquivo" id="arquivo">
+                         </div>
+
+                         <div class="text-end">
+                             <button type="submit" class="btn btn-primary px-5" >Enviar</button>
+                         </div>
+
+                     </form>
+                 </div>
                  
 
              </div>
