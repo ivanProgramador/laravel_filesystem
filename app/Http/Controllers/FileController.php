@@ -222,7 +222,34 @@ class FileController extends Controller
             //quando ulpload for feito pode fazer da forma abaixo mas não é aconselhavel  
             // $request->file('arquivo')->storeAs('public',$request->file('arquivo')->getClientOriginalName());
 
-            $request->file('arquivo')->store('upload');
+           // $request->file('arquivo')->store('upload');
+            
+           //--------------------------------------------------------------------------
+           //-- UPLOAD COM VALIDAÇÃO ---//
+           //As regras de validação de arquivo
+           /*
+             testam , se o aruivo existe depois o tipo "mime" dele
+             e o tamanho 
+             
+             no caso da minha regrad e validação
+              1 - ele deve existir 
+              2 - os tipos podem ser  pdf,jpg,png
+              3 - ele tem que ter ate 100 kb
+             
+            porque nesse caso a validação conta em kb não em megas 
+            
+            */ 
+
+           $request->validate(
+            [
+              'arquivo'=>'required|mimes:pdf,jpg,png|max:100'
+            ]
+           );
+
+           $request->file('arquivo')->store('upload');
+
+
+
 
             echo'arquivo enviado com sucesso';
 
